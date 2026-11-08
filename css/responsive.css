@@ -1,0 +1,136 @@
+
+/* ========================================
+   АДАПТИВНОСТЬ AUTOPARTS
+======================================== */
+
+/* Планшеты и небольшие ноутбуки */
+
+@media (max-width: 1000px) {
+
+    .category-grid,
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-number {
+        font-size: 110px;
+    }
+}
+
+/* Планшеты */
+
+@media (max-width: 768px) {
+
+    .header-container {
+        min-height: 70px;
+    }
+
+    .navigation {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background-color: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .navigation.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-decoration {
+        display: none;
+    }
+
+    .hero {
+        min-height: 400px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Смартфоны */
+
+@media (max-width: 480px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .header-actions {
+        gap: 12px;
+    }
+
+    .cart-link {
+        font-size: 13px;
+    }
+
+    .theme-toggle,
+    .menu-toggle {
+        font-size: 19px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+        letter-spacing: -1px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-form .btn {
+        width: 100%;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .category-grid,
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card {
+        min-height: 150px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+}

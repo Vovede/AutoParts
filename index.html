@@ -4,10 +4,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AutoParts — интернет-магазин автомобильных запчастей. Большой выбор деталей для вашего автомобиля.">
+    <meta name="theme-color" content="#111315">
+
     <title>AutoParts — Магазин автозапчастей</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <script src="js/products.js" defer></script>
+    <script src="js/main.js" defer></script>
 </head>
+
 <body>
-    <h1>AutoParts</h1>
-    <p>Добро пожаловать в магазин автозапчастей!</p>
+
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header-container">
+
+            <a href="index.html" class="logo">
+                AUTO<span>PARTS</span>
+            </a>
+
+            <nav class="navigation" id="navigation">
+                <a href="index.html" class="nav-link active">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="about.html" class="nav-link">О магазине</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="theme-toggle" id="theme-toggle"
+                        aria-label="Переключить тему">
+                    ☀
+                </button>
+
+                <a href="cart.html" class="cart-link">
+                    Корзина
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+
+                <button class="menu-toggle" id="menu-toggle"
+                        aria-label="Открыть меню">
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Главный баннер -->
+        <section class="hero">
+            <div class="container hero-container">
+
+                <div class="hero-content">
+                    <span class="hero-label">AUTO PARTS STORE</span>
+
+                    <h1>
+                        НАЙДИ ЗАПЧАСТИ<br>
+                        ДЛЯ СВОЕГО <span>АВТО</span>
+                    </h1>
+
+                    <p>
+                        Качественные автомобильные запчасти,
+                        проверенные производители и удобный
+                        поиск необходимых деталей.
+                    </p>
+
+                    <a href="catalog.html" class="btn btn-primary">
+                        Перейти в каталог
+                    </a>
+                </div>
+
+                <div class="hero-decoration">
+                    <span class="hero-number">01</span>
+                    <span class="hero-caption">КАЧЕСТВО В КАЖДОЙ ДЕТАЛИ</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Поиск -->
+        <section class="search-section">
+            <div class="container">
+
+                <form class="search-form" id="search-form">
+                    <input
+                        type="search"
+                        id="search-input"
+                        placeholder="Введите название запчасти..."
+                        aria-label="Поиск запчастей"
+                    >
+
+                    <button type="submit" class="btn btn-primary">
+                        Найти
+                    </button>
+                </form>
+
+            </div>
+        </section>
+
+        <!-- Категории -->
+        <section class="categories section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">НАШ АССОРТИМЕНТ</span>
+                        <h2>Категории товаров</h2>
+                    </div>
+
+                    <a href="catalog.html" class="text-link">
+                        Все категории →
+                    </a>
+                </div>
+
+                <div class="category-grid">
+
+                    <a href="catalog.html?category=engine"
+                       class="category-card">
+                        <span class="category-icon">⚙</span>
+                        <h3>Двигатель</h3>
+                        <span>Запчасти и комплектующие</span>
+                    </a>
+
+                    <a href="catalog.html?category=brakes"
+                       class="category-card">
+                        <span class="category-icon">◉</span>
+                        <h3>Тормозная система</h3>
+                        <span>Диски, колодки и другое</span>
+                    </a>
+
+                    <a href="catalog.html?category=suspension"
+                       class="category-card">
+                        <span class="category-icon">↕</span>
+                        <h3>Подвеска</h3>
+                        <span>Амортизаторы и детали</span>
+                    </a>
+
+                    <a href="catalog.html?category=filters"
+                       class="category-card">
+                        <span class="category-icon">▦</span>
+                        <h3>Фильтры</h3>
+                        <span>Масляные и воздушные</span>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Популярные товары -->
+        <section class="products section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">ВЫБОР ПОКУПАТЕЛЕЙ</span>
+                        <h2>Популярные товары</h2>
+                    </div>
+
+                    <a href="catalog.html" class="text-link">
+                        Весь каталог →
+                    </a>
+                </div>
+
+                <div class="product-grid" id="featured-products">
+
+                    <!-- Карточки товаров будут добавлены через JavaScript -->
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Преимущества -->
+        <section class="advantages section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">ПОЧЕМУ AUTOPARTS</span>
+                        <h2>Наши преимущества</h2>
+                    </div>
+                </div>
+
+                <div class="advantages-grid">
+
+                    <article class="advantage-card">
+                        <span class="advantage-icon">✓</span>
+                        <h3>Качество товаров</h3>
+                        <p>Работаем с проверенными производителями автозапчастей.</p>
+                    </article>
+
+                    <article class="advantage-card">
+                        <span class="advantage-icon">↗</span>
+                        <h3>Быстрая доставка</h3>
+                        <p>Удобные варианты получения заказанных товаров.</p>
+                    </article>
+
+                    <article class="advantage-card">
+                        <span class="advantage-icon">₽</span>
+                        <h3>Доступные цены</h3>
+                        <p>Широкий ассортимент товаров в разных ценовых категориях.</p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container footer-container">
+
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    AUTO<span>PARTS</span>
+                </a>
+
+                <p>
+                    Автозапчасти для вашего автомобиля.
+                    Качество, надёжность и удобство покупок.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Навигация</h3>
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О магазине</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Покупателям</h3>
+                <a href="cart.html">Корзина</a>
+                <a href="checkout.html">Оформление заказа</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Контакты</h3>
+                <p>Телефон: +7 (900) 000-00-00</p>
+                <p>Email: info@autoparts.example</p>
+            </div>
+
+        </div>
+
+        <div class="container footer-bottom">
+            <p>© 2026 AutoParts. Учебный проект.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
