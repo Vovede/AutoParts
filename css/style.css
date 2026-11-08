@@ -590,3 +590,35 @@ button {
         text-align: center;
     }
 }
+
+
+/* Кнопка добавления товара в корзину */
+.catalog-content .add-to-cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    color: #ffffff;
+    background-color: var(--accent);
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition),
+                transform var(--transition);
+}
+
+.catalog-content .add-to-cart:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.catalog-content .add-to-cart:active {
+    transform: translateY(0);
+}
+
+.catalog-content .add-to-cart:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}

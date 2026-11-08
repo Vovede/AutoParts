@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Каталог автозапчастей AutoParts. Подбор деталей для вашего автомобиля.">
+    <title>Каталог товаров | AutoParts</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <script src="js/products.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/catalog.js" defer></script>
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                AUTO<span>PARTS</span>
+            </a>
+
+            <nav class="navigation" id="navigation">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html" class="active">Каталог</a>
+                <a href="about.html">О магазине</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">
+                    ☀
+                </button>
+
+                <a href="cart.html" class="cart-link">
+                    Корзина
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+
+                <button class="menu-toggle" id="menu-toggle" aria-label="Открыть меню">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Заголовок каталога -->
+        <section class="catalog-hero">
+            <div class="container">
+                <p class="catalog-label">AUTOPARTS / PRODUCTS</p>
+                <h1>Каталог товаров</h1>
+                <p>Найдите необходимые запчасти для вашего автомобиля</p>
+            </div>
+        </section>
+
+        <!-- Основная область каталога -->
+        <section class="catalog-section">
+            <div class="container">
+
+                <div class="catalog-toolbar">
+                    <div class="catalog-search">
+                        <input
+                            type="search"
+                            id="catalog-search"
+                            placeholder="Поиск по названию или бренду..."
+                            aria-label="Поиск товаров"
+                        >
+                    </div>
+
+                    <div class="catalog-sort">
+                        <label for="catalog-sort">Сортировка:</label>
+                        <select id="catalog-sort">
+                            <option value="default">По умолчанию</option>
+                            <option value="price-asc">Сначала дешевле</option>
+                            <option value="price-desc">Сначала дороже</option>
+                            <option value="name-asc">По названию (А–Я)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="catalog-layout">
+
+                    <!-- Фильтры -->
+                    <aside class="catalog-sidebar">
+                        <h2>Категории</h2>
+
+                        <div class="category-filters">
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="all" checked>
+                                <span>Все товары</span>
+                            </label>
+
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="engine">
+                                <span>Двигатель</span>
+                            </label>
+
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="brakes">
+                                <span>Тормозная система</span>
+                            </label>
+
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="suspension">
+                                <span>Подвеска</span>
+                            </label>
+
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="filters">
+                                <span>Фильтры</span>
+                            </label>
+                        </div>
+
+                        <button class="reset-filters" id="reset-filters">
+                            Сбросить фильтры
+                        </button>
+                    </aside>
+
+                    <!-- Товары -->
+                    <div class="catalog-content">
+                        <div class="catalog-results">
+                            <p id="products-count">Загрузка товаров...</p>
+                        </div>
+
+                        <div class="products-grid" id="catalog-products">
+                            <!-- Карточки товаров будут добавлены через JavaScript -->
+                        </div>
+
+                        <p class="catalog-empty" id="catalog-empty" hidden>
+                            По вашему запросу ничего не найдено.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                AUTO<span>PARTS</span>
+                <p>Автозапчасти для вашего автомобиля</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О магазине</a>
+            </div>
+
+            <p class="footer-copy">
+                © 2026 AutoParts. Все права защищены.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
