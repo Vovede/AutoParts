@@ -112,7 +112,33 @@ function addToCart(productId) {
 
     saveCart(cart);
 
-    alert("Товар добавлен в корзину!");
+    showToast("Товар добавлен в корзину");
+}
+
+// Отображение уведомления
+
+function showToast(message) {
+    let toast = document.querySelector(".toast");
+
+    if (!toast) {
+        toast = document.createElement("div");
+        toast.className = "toast";
+
+        toast.setAttribute("role", "status");
+        toast.setAttribute("aria-live", "polite");
+
+        document.body.appendChild(toast);
+    }
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toast.timer);
+
+    toast.timer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
 }
 
 

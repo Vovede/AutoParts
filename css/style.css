@@ -22,6 +22,10 @@
     --container-width: 1200px;
 
     --transition: 0.25s ease;
+
+    --hero-start: #171a1e;
+    --hero-end: #111315;
+    --hero-glow: rgba(229, 57, 53, 0.16);
 }
 
 /* Светлая тема */
@@ -36,6 +40,10 @@ body.light-theme {
     --text-secondary: #666c72;
 
     --border-color: #dfe3e6;
+
+    --hero-start: #ffffff;
+    --hero-end: #e9edf1;
+    --hero-glow: rgba(229, 57, 53, 0.10);
 }
 
 /* Общие настройки */
@@ -175,15 +183,21 @@ button {
 
 .hero {
     min-height: 490px;
+
     background:
         radial-gradient(
             ellipse at 80% 50%,
-            rgba(229, 57, 53, 0.16),
+            var(--hero-glow),
             transparent 55%
         ),
-        linear-gradient(120deg, #171a1e, #111315);
+        linear-gradient(
+            120deg,
+            var(--hero-start),
+            var(--hero-end)
+        );
 
     border-bottom: 1px solid var(--border-color);
+
     display: flex;
     align-items: center;
 }
@@ -231,18 +245,20 @@ button {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    color: rgba(255, 255, 255, 0.12);
+    color: var(--text-secondary);
 }
 
 .hero-number {
     font-size: 150px;
     font-weight: 900;
     line-height: 1;
+    opacity: 0.2;
 }
 
 .hero-caption {
     font-size: 11px;
     letter-spacing: 3px;
+    opacity: 0.8;
 }
 
 /* ========================================
@@ -530,4 +546,47 @@ button {
     border-top: 1px solid #30363d;
     color: #777e85;
     font-size: 13px;
+}
+
+/* ========================================
+   УВЕДОМЛЕНИЯ
+======================================== */
+
+.toast {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 1000;
+
+    padding: 16px 24px;
+
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition: opacity 0.25s ease,
+                transform 0.25s ease;
+
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .toast {
+        left: 4%;
+        right: 4%;
+        bottom: 15px;
+        text-align: center;
+    }
 }
