@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Оформление заказа в интернет-магазине AutoParts.">
+    <title>Оформление заказа | AutoParts</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <script src="js/products.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/checkout.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                AUTO<span>PARTS</span>
+            </a>
+
+            <nav class="navigation" id="navigation">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О магазине</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle"
+                        aria-label="Переключить тему">☀</button>
+
+                <a href="cart.html" class="cart-link">
+                    Корзина
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+
+                <button class="menu-toggle" id="menu-toggle"
+                        aria-label="Открыть меню">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="checkout-page">
+            <div class="container">
+
+                <div class="checkout-heading">
+                    <p class="checkout-label">AUTOPARTS / CHECKOUT</p>
+                    <h1>Оформление заказа</h1>
+                    <p>Заполните данные для оформления покупки</p>
+                </div>
+
+                <div id="checkout-empty" class="checkout-empty" hidden>
+                    <h2>Корзина пуста</h2>
+                    <p>Добавьте товары перед оформлением заказа.</p>
+                    <a href="catalog.html" class="checkout-submit">
+                        Перейти в каталог
+                    </a>
+                </div>
+
+                <div class="checkout-layout" id="checkout-layout">
+
+                    <form id="checkout-form" class="checkout-form">
+
+                        <section class="checkout-section">
+                            <h2>1. Контактные данные</h2>
+
+                            <div class="form-group">
+                                <label for="customer-name">ФИО</label>
+                                <input
+                                    type="text"
+                                    id="customer-name"
+                                    name="name"
+                                    placeholder="Иван Иванов"
+                                    minlength="2"
+                                    maxlength="100"
+                                    autocomplete="name"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="customer-phone">Телефон</label>
+                                    <input
+                                        type="tel"
+                                        id="customer-phone"
+                                        name="phone"
+                                        placeholder="+371 20000000"
+                                        autocomplete="tel"
+                                        pattern="^\+?[0-9\s()\-]{7,20}$"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="customer-email">Электронная почта</label>
+                                    <input
+                                        type="email"
+                                        id="customer-email"
+                                        name="email"
+                                        placeholder="example@mail.com"
+                                        autocomplete="email"
+                                        required
+                                    >
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="checkout-section">
+                            <h2>2. Доставка</h2>
+
+                            <div class="form-group">
+                                <label for="delivery-method">
+                                    Способ доставки
+                                </label>
+
+                                <select id="delivery-method"
+                                        name="delivery" required>
+                                    <option value="courier">
+                                        Курьерская доставка — 500 ₽
+                                    </option>
+                                    <option value="pickup">
+                                        Самовывоз — бесплатно
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" id="address-group">
+                                <label for="customer-address">Адрес доставки</label>
+                                <input
+                                    type="text"
+                                    id="customer-address"
+                                    name="address"
+                                    placeholder="Город, улица, дом, квартира"
+                                    minlength="5"
+                                    maxlength="200"
+                                    autocomplete="street-address"
+                                    required
+                                >
+                            </div>
+                        </section>
+
+                        <section class="checkout-section">
+                            <h2>3. Способ оплаты</h2>
+
+                            <div class="payment-options">
+                                <label class="payment-option">
+                                    <input
+                                        type="radio"
+                                        name="payment"
+                                        value="card"
+                                        checked
+                                    >
+                                    <span>Банковская карта</span>
+                                </label>
+
+                                <label class="payment-option">
+                                    <input
+                                        type="radio"
+                                        name="payment"
+                                        value="cash"
+                                    >
+                                    <span>Наличными при получении</span>
+                                </label>
+                            </div>
+
+                            <p class="payment-note">
+                                Оплата демонстрационная. Реальная банковская
+                                операция не выполняется.
+                            </p>
+                        </section>
+
+                        <button type="submit" class="checkout-submit">
+                            Подтвердить заказ
+                        </button>
+
+                    </form>
+
+                    <aside class="checkout-summary">
+                        <h2>Ваш заказ</h2>
+
+                        <div id="checkout-items"></div>
+
+                        <div class="checkout-summary-divider"></div>
+
+                        <div class="checkout-summary-row">
+                            <span>Товары</span>
+                            <span id="checkout-subtotal">0 €</span>
+                        </div>
+
+                        <div class="checkout-summary-row">
+                            <span>Доставка</span>
+                            <span id="checkout-delivery">5 €</span>
+                        </div>
+
+                        <div class="checkout-summary-total">
+                            <span>Итого</span>
+                            <span id="checkout-total">0 €</span>
+                        </div>
+                    </aside>
+
+                </div>
+
+                <div id="checkout-success" class="checkout-success" hidden>
+                    <div class="success-icon">✓</div>
+                    <h2>Заказ успешно оформлен!</h2>
+                    <p id="success-order-number"></p>
+                    <p>Спасибо за покупку в AutoParts.</p>
+                    <a href="catalog.html" class="checkout-submit">
+                        Вернуться в каталог
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                AUTO<span>PARTS</span>
+                <p>Автозапчасти для вашего автомобиля</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О магазине</a>
+            </div>
+
+            <p class="footer-copy">
+                © 2026 AutoParts. Все права защищены.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

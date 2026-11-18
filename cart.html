@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Корзина интернет-магазина AutoParts.">
+    <title>Корзина | AutoParts</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <script src="js/products.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/cart.js" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                AUTO<span>PARTS</span>
+            </a>
+
+            <nav class="navigation" id="navigation">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О магазине</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle"
+                        aria-label="Переключить тему">☀</button>
+
+                <a href="cart.html" class="cart-link active">
+                    Корзина
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+
+                <button class="menu-toggle" id="menu-toggle"
+                        aria-label="Открыть меню">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="cart-page">
+            <div class="container">
+
+                <div class="cart-heading">
+                    <p class="cart-label">AUTOPARTS / SHOPPING CART</p>
+                    <h1>Корзина</h1>
+                    <p>Ваши выбранные автозапчасти</p>
+                </div>
+
+                <div class="cart-layout" id="cart-layout">
+
+                    <div class="cart-products">
+                        <div class="cart-products-heading">
+                            <h2>Ваши товары</h2>
+
+                            <button id="clear-cart" class="clear-cart">
+                                Очистить корзину
+                            </button>
+                        </div>
+
+                        <div id="cart-items">
+                            <p class="cart-loading">Загрузка корзины...</p>
+                        </div>
+                    </div>
+
+                    <aside class="cart-summary">
+                        <h2>Ваш заказ</h2>
+
+                        <div class="summary-row">
+                            <span>Количество товаров</span>
+                            <span id="summary-quantity">0</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Стоимость товаров</span>
+                            <span id="summary-subtotal">0 ₽</span>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-total">
+                            <span>Итого</span>
+                            <span id="summary-total">0 ₽</span>
+                        </div>
+
+                        <a href="checkout.html" class="checkout-button"
+                           id="checkout-button">
+                            Перейти к оформлению
+                        </a>
+
+                        <a href="catalog.html" class="continue-shopping">
+                            Продолжить покупки
+                        </a>
+                    </aside>
+
+                </div>
+
+                <div class="cart-empty" id="cart-empty" hidden>
+                    <div class="empty-icon">🛒</div>
+                    <h2>Ваша корзина пуста</h2>
+                    <p>Добавьте товары из каталога, чтобы оформить заказ.</p>
+
+                    <a href="catalog.html" class="checkout-button">
+                        Перейти в каталог
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                AUTO<span>PARTS</span>
+                <p>Автозапчасти для вашего автомобиля</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О магазине</a>
+            </div>
+
+            <p class="footer-copy">
+                © 2026 AutoParts. Все права защищены.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -15,9 +15,21 @@ let sortOrder = "default";
 
 // Имитация загрузки товаров с сервера
 async function loadProducts() {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(PRODUCTS);
+            try {
+                if (typeof PRODUCTS === "undefined") {
+                    throw new Error("Массив PRODUCTS не найден");
+                }
+
+                if (!Array.isArray(PRODUCTS)) {
+                    throw new Error("PRODUCTS должен быть массивом");
+                }
+
+                resolve(PRODUCTS);
+            } catch (error) {
+                reject(error);
+            }
         }, 400);
     });
 }
@@ -99,7 +111,7 @@ function renderCatalogProducts() {
     catalogProducts.hidden = products.length === 0;
 
     catalogProducts.innerHTML = products.map(product => `
-        <article class="product-card">
+        <article class="product-card" data-product-id="${product.id}" role="link" tabindex="0" aria-label="Подробнее о товаре ${escapeHTML(product.name)}">
             <div class="product-image">
                 <span>${escapeHTML(product.icon)}</span>
             </div>
@@ -176,12 +188,32 @@ resetFiltersButton.addEventListener("click", () => {
 catalogProducts.addEventListener("click", event => {
     const button = event.target.closest(".add-to-cart");
 
-    if (!button) {
+    if (button) {
+        const productId = Number(button.dataset.productId);
+        addToCart(productId);
         return;
     }
 
-    const productId = Number(button.dataset.productId);
-    addToCart(productId);
+    const card = event.target.closest(".product-card");
+
+    if (card) {
+        const productId = card.dataset.productId;
+        window.location.href = `product.html?id=${productId}`;
+    }
+});
+
+// Переход к товару с клавиатуры
+catalogProducts.addEventListener("keydown", event => {
+    const card = event.target.closest(".product-card");
+
+    if (!card || event.target.closest("button")) {
+        return;
+    }
+
+    if (event.key === "Enter") {
+        window.location.href =
+            `product.html?id=${card.dataset.productId}`;
+    }
 });
 
 // Начальная загрузка каталога
