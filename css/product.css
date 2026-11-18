@@ -193,3 +193,24 @@
     -moz-appearance: textfield;
     appearance: textfield;
 }
+/* Исправление блока количества товара на мобильных устройствах */
+
+@media (max-width: 600px) {
+    .product-quantity {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .product-quantity button {
+        flex-shrink: 0;
+    }
+
+    .product-quantity input {
+        width: 60px;
+        flex: 0 0 60px;
+        text-align: center;
+    }
+}
